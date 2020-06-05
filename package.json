@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "gatsby": "^2.21.22",
+    "gatsby-plugin-postcss": "^2.3.3",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-theme-blog": "^1.5.22",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^1.4.6"
   }
 }

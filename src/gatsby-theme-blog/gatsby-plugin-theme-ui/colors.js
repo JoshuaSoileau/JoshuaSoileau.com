@@ -1,5 +1,5 @@
-import merge from "deepmerge"
-import defaultThemeColors from "gatsby-theme-blog/src/gatsby-plugin-theme-ui/colors"
+import merge from "deepmerge";
+import defaultThemeColors from "gatsby-theme-blog/src/gatsby-plugin-theme-ui/colors";
 
 /*
  * Want to change your theme colors?
@@ -22,4 +22,4 @@ export default merge(defaultThemeColors, {
   //     highlight: lightBlue,
   //   },
   // },
-})
+});
