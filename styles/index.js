@@ -103,67 +103,6 @@ export const globalStyles = css.global`
     scroll-behavior: smooth;
     font-family: "Lato";
   }
-  body {
-    position: relative;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    color: ${config.css.black};
-  }
-  #__next {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 100vh;
-  }
-  .footer {
-    background: #fff;
-    height: 80px;
-    width: 100%;
-    border-top: 2px solid ${config.css.lightGray};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    position: absolute;
-    bottom: 0;
-  }
-  strong,
-  h1,
-  h1 > *,
-  h2,
-  h2 > *,
-  h3,
-  h3 > *,
-  h4,
-  h4 > *,
-  h5,
-  h5 > *,
-  h6,
-  h6 > * {
-    letter-spacing: 1px;
-  }
-  strong {
-    color: ${config.css.accentColor};
-  }
-  .search-layout,
-  .blog-layout,
-  .blog-post-list {
-    max-width: 740px;
-    padding: 40px 20px 100px 20px;
-    position: relative;
-  }
-  .blog-layout {
-    display: flex;
-    flex-direction: column;
-  }
-  img {
-    max-width: 100%;
-  }
-  img.img-centered {
-    align-self: center;
-    margin: 10px 0px;
-  }
   .icon-button {
     outline: none;
     border: none;
@@ -178,15 +117,6 @@ export const globalStyles = css.global`
     padding-top: 4px;
     border-radius: 3px;
   }
-  a {
-    color: ${config.css.accentColor};
-  }
-  label {
-    color: ${config.css.black};
-    font-weight: 600;
-    font-family: sans-serif;
-    font-size: 18px;
-  }
   p,
   p a,
   b,
@@ -195,9 +125,22 @@ export const globalStyles = css.global`
   li,
   ul,
   ol {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.1rem;
+    line-height: 1.5;
     word-break: break-word; /* This prevents a bug with the reading progress bar. Leave this style here unless you are removing the reading progress bar. */
+  }
+
+  @media (min-width: 768px) {
+    p,
+    p a,
+    b,
+    em,
+    span,
+    li,
+    ul,
+    ol {
+      font-size: 1.3rem;
+    }
   }
 
   code > span {

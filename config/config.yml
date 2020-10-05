@@ -17,9 +17,8 @@ config:
   # This is list is used to create the links in the navigation panel
   navigation:
     - { text: Home, link: / }
-    - { text: Experiments, link: /experiments }
-    - { text: Thoughts, link: /blog }
-    - { text: About, link: /about }
+    - { text: Experiments, link: /#experiments }
+    - { text: Blog, link: /#blog }
 
   css:
     primaryColor: "#536DFE"

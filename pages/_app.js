@@ -10,101 +10,91 @@ import Footer from "../components/Footer";
 import { checkForSW } from "../utils/check-for-sw";
 import { FaBars } from "react-icons/fa";
 import { globalStyles } from "../styles";
+import "../styles.css";
 
 export default class MyApp extends App {
-    constructor(props) {
-        super(props);
-        this.state = { navOpen: false, postData: props.postData };
+  constructor(props) {
+    super(props);
+    this.state = { navOpen: false, postData: props.postData };
+  }
+
+  static async getInitialProps({ Component, router, ctx }) {
+    let pageProps = {};
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    static async getInitialProps({ Component, router, ctx }) {
-        let pageProps = {};
+    const [allData, postData] = await Promise.all([
+      BlogEngine(),
+      getPostData(router),
+    ]).catch((error) =>
+      console.error("Error in _app.js getInitialProps()", error)
+    );
 
-        if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx);
-        }
+    const propsObj = Object.assign({}, { postData, allData, ...pageProps });
 
-        const [allData, postData] = await Promise.all([
-            BlogEngine(),
-            getPostData(router)
-        ]).catch(error =>
-            console.error("Error in _app.js getInitialProps()", error)
-        );
+    return { ...propsObj };
+  }
 
-        const propsObj = Object.assign(
-            {},
-            { postData, allData, ...pageProps }
-        );
+  async componentDidMount() {
+    await checkForSW();
+  }
 
-        return { ...propsObj };
+  async componentDidUpdate(prevProps, prevState) {
+    const postData = await getPostData(this.props.router);
+    if (!prevState.postData || postData.name !== this.state.postData.name) {
+      this.setState({ postData });
     }
+  }
 
-    async componentDidMount() {
-        await checkForSW();
+  handleToggleNavigation = () => {
+    this.setState({
+      navOpen: !this.state.navOpen,
+    });
+  };
+
+  render() {
+    const { postData } = this.state;
+
+    const seoData = createSEOConfig(postData);
+    if (postData) {
+      const tagsString = postData.tags.join(", ");
+      return (
+        <React.Fragment>
+          {/* (1) SEO  */}
+          <Head>
+            <meta name="keywords" content={tagsString} />
+          </Head>
+          <NextSeo config={seoData} />
+
+          {/* (2) navigation */}
+          <Navigation
+            open={this.state.navOpen}
+            toggleNavigation={this.handleToggleNavigation}
+          />
+
+          {/* (3) page body */}
+          <main className="container  prose lg:prose-xl">
+            {renderLayout(this.props, this.state)}
+          </main>
+
+          {/* (4) footer */}
+          <Footer />
+
+          {/* (5) global and local styles */}
+          <style global jsx>
+            {globalStyles}
+          </style>
+          <style jsx>{`
+            .icon-button {
+              margin: 15px;
+            }
+          `}</style>
+        </React.Fragment>
+      );
+    } else {
+      return null;
     }
-
-    async componentDidUpdate(prevProps, prevState) {
-        const postData = await getPostData(this.props.router);
-        if (!prevState.postData || postData.name !== this.state.postData.name) {
-            this.setState({ postData });
-        }
-    }
-
-    handleToggleNavigation = () => {
-        this.setState({
-            navOpen: !this.state.navOpen
-        });
-    };
-
-    render() {
-        const { postData } = this.state;
-
-        const seoData = createSEOConfig(postData);
-        if (postData) {
-            const tagsString = postData.tags.join(", ");
-            return (
-                <React.Fragment>
-                    {/* (1) SEO  */}
-                    <Head>
-                        <meta name="keywords" content={tagsString} />
-                    </Head>
-                    <NextSeo config={seoData} />
-
-                    {/* (2) navigation */}
-                    <Navigation
-                        open={this.state.navOpen}
-                        toggleNavigation={this.handleToggleNavigation}
-                    />
-                    <button
-                        type="button"
-                        role="button"
-                        aria-label="open navigation"
-                        className="icon-button hamburger"
-                        onClick={this.handleToggleNavigation}>
-                        <FaBars size={20} />
-                    </button>
-
-                    {/* (3) page body */}
-                    <React.Fragment>
-                        {renderLayout(this.props, this.state)}
-                    </React.Fragment>
-
-                    {/* (4) footer */}
-                    <Footer />
-
-                    {/* (5) global and local styles */}
-                    <style global jsx>
-                        {globalStyles}
-                    </style>
-                    <style jsx>{`
-                        .icon-button {
-                            margin: 15px;
-                        }
-                    `}</style>
-                </React.Fragment>
-            );
-        } else {
-            return null;
-        }
-    }
+  }
 }
