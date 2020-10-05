@@ -11,6 +11,7 @@ import { checkForSW } from "../utils/check-for-sw";
 import { FaBars } from "react-icons/fa";
 import { globalStyles } from "../styles";
 import "../styles.css";
+import { PostsProvider } from "../providers/PostsProvider";
 
 export default class MyApp extends App {
   constructor(props) {
@@ -61,35 +62,37 @@ export default class MyApp extends App {
     if (postData) {
       const tagsString = postData.tags.join(", ");
       return (
-        <React.Fragment>
-          {/* (1) SEO  */}
-          <Head>
-            <meta name="keywords" content={tagsString} />
-          </Head>
-          <NextSeo config={seoData} />
+        <PostsProvider allPosts={this.props.allData}>
+          <React.Fragment>
+            {/* (1) SEO  */}
+            <Head>
+              <meta name="keywords" content={tagsString} />
+            </Head>
+            <NextSeo config={seoData} />
 
-          {/* (2) navigation */}
-          <Navigation
-            open={this.state.navOpen}
-            toggleNavigation={this.handleToggleNavigation}
-          />
+            {/* (2) navigation */}
+            <Navigation
+              open={this.state.navOpen}
+              toggleNavigation={this.handleToggleNavigation}
+            />
 
-          {/* (3) page body */}
-          {renderLayout(this.props, this.state)}
+            {/* (3) page body */}
+            {renderLayout(this.props, this.state)}
 
-          {/* (4) footer */}
-          <Footer />
+            {/* (4) footer */}
+            <Footer />
 
-          {/* (5) global and local styles */}
-          <style global jsx>
-            {globalStyles}
-          </style>
-          <style jsx>{`
-            .icon-button {
-              margin: 15px;
-            }
-          `}</style>
-        </React.Fragment>
+            {/* (5) global and local styles */}
+            <style global jsx>
+              {globalStyles}
+            </style>
+            <style jsx>{`
+              .icon-button {
+                margin: 15px;
+              }
+            `}</style>
+          </React.Fragment>
+        </PostsProvider>
       );
     } else {
       return null;

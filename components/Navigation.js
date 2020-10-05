@@ -14,7 +14,7 @@ export default class Navigation extends Component {
     // there is a click handler on div.backdrop to close the
     // nav if the user clicks outside of the navigation component
     return (
-      <div className="absolute inset-x-0 container relative flex flex-row justify-between items-center">
+      <div className="absolute inset-x-0 container flex flex-row justify-between items-center">
         <Link href="/">
           <a className="block p-4  text-bold text-3xl">JS</a>
         </Link>

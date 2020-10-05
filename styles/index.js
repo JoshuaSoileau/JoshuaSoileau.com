@@ -117,31 +117,6 @@ export const globalStyles = css.global`
     padding-top: 4px;
     border-radius: 3px;
   }
-  p,
-  p a,
-  b,
-  em,
-  span,
-  li,
-  ul,
-  ol {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    word-break: break-word; /* This prevents a bug with the reading progress bar. Leave this style here unless you are removing the reading progress bar. */
-  }
-
-  @media (min-width: 768px) {
-    p,
-    p a,
-    b,
-    em,
-    span,
-    li,
-    ul,
-    ol {
-      font-size: 1.3rem;
-    }
-  }
 
   code > span {
     font-size: inherit; /* make sure code font size is set in <CodeBlock /> */
