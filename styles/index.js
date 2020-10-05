@@ -7,42 +7,116 @@ import { config } from "../config/config.yml";
 
 // used in pages/about.js, pages/index.js
 export const centeredPageStyles = css`
-    .centered-container {
-        height: 80vh;
-        width: 98vw;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+  .centered-container {
+    height: 80vh;
+    width: 98vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 // used in _app.js
 export const globalStyles = css.global`
-@font-face {
-    font-family: "Abril Fatface";
+  @font-face {
+    font-family: "Lato";
     font-display: auto; /* Important for performance */
-    src: url("/static/fonts/Abril-Fatface.woff2") format("woff2");
+    font-weight: 100;
     font-style: normal;
-}
-html {
+    src: url("/static/fonts/Lato-Thin.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 100;
+    font-style: italic;
+    src: url("/static/fonts/Lato-ThinItalic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 300;
+    font-style: normal;
+    src: url("/static/fonts/Lato-Light.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 300;
+    font-style: italic;
+    src: url("/static/fonts/Lato-LightItalic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 500;
+    font-style: normal;
+    src: url("/static/fonts/Lato-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 500;
+    font-style: italic;
+    src: url("/static/fonts/Lato-Italic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 700;
+    font-style: normal;
+    src: url("/static/fonts/Lato-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 700;
+    font-style: italic;
+    src: url("/static/fonts/Lato-BoldItalic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 900;
+    font-style: normal;
+    src: url("/static/fonts/Lato-Black.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-display: auto; /* Important for performance */
+    font-weight: 900;
+    font-style: italic;
+    src: url("/static/fonts/Lato-BlackItalic.ttf");
+  }
+  html {
     scroll-behavior: smooth;
-}
-body {
+    font-family: "Lato";
+  }
+  body {
     position: relative;
     top: 0;
     margin: 0;
     padding: 0;
     color: ${config.css.black};
-}
-#__next {
+  }
+  #__next {
     display: flex;
     flex-direction: column;
     flex: 1;
     min-height: 100vh;
-}
-.footer {
+  }
+  .footer {
     background: #fff;
     height: 80px;
     width: 100%;
@@ -53,50 +127,49 @@ body {
     font-size: 16px;
     position: absolute;
     bottom: 0;
-}
-strong,
-h1,
-h1 > *,
-h2,
-h2 > *,
-h3,
-h3 > *,
-h4,
-h4 > *,
-h5,
-h5 > *,
-h6,
-h6 > * {
-    font-family: "Abril Fatface";
+  }
+  strong,
+  h1,
+  h1 > *,
+  h2,
+  h2 > *,
+  h3,
+  h3 > *,
+  h4,
+  h4 > *,
+  h5,
+  h5 > *,
+  h6,
+  h6 > * {
     letter-spacing: 1px;
-}
-strong {
-    color: ${config.css.accentColor}
-}
-.search-layout,
-.blog-layout,
-.blog-post-list {
+  }
+  strong {
+    color: ${config.css.accentColor};
+  }
+  .search-layout,
+  .blog-layout,
+  .blog-post-list {
     max-width: 740px;
     padding: 40px 20px 100px 20px;
     position: relative;
-}
-.blog-layout {
+  }
+  .blog-layout {
     display: flex;
     flex-direction: column;
-}
-img {
+  }
+  img {
     max-width: 100%;
-}
-img.img-centered {
+  }
+  img.img-centered {
     align-self: center;
     margin: 10px 0px;
-}
-.icon-button {
+  }
+  .icon-button {
     outline: none;
     border: none;
     background: ${config.css.backgroundColor};
-}
-.icon-button.hamburger {
+  }
+  .icon-button.hamburger {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -104,31 +177,31 @@ img.img-centered {
     border: 1px solid ${config.css.lightGray};
     padding-top: 4px;
     border-radius: 3px;
-}
-a {
+  }
+  a {
     color: ${config.css.accentColor};
-}
-label {
+  }
+  label {
     color: ${config.css.black};
     font-weight: 600;
     font-family: sans-serif;
     font-size: 18px;
-}
-p,
-p a,
-b,
-em,
-span,
-li,
-ul,
-ol {
+  }
+  p,
+  p a,
+  b,
+  em,
+  span,
+  li,
+  ul,
+  ol {
     font-size: 18px;
     line-height: 24px;
-    word-break: break-word /* This prevents a bug with the reading progress bar. Leave this style here unless you are removing the reading progress bar. */
-}
+    word-break: break-word; /* This prevents a bug with the reading progress bar. Leave this style here unless you are removing the reading progress bar. */
+  }
 
-code > span {
+  code > span {
     font-size: inherit; /* make sure code font size is set in <CodeBlock /> */
     background: inherit !important; /* Fixes code block style bug*/
-}
+  }
 `;
