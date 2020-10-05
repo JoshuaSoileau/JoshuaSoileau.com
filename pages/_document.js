@@ -1,5 +1,4 @@
 import Document, { Head, Main, NextScript } from "next/document";
-import Fonts from "../components/layouts/Fonts";
 import { config } from "../config/config.yml";
 
 export default class MyDocument extends Document {

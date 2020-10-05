@@ -75,9 +75,7 @@ export default class MyApp extends App {
           />
 
           {/* (3) page body */}
-          <main className="container  prose lg:prose-xl">
-            {renderLayout(this.props, this.state)}
-          </main>
+          {renderLayout(this.props, this.state)}
 
           {/* (4) footer */}
           <Footer />

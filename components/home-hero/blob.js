@@ -1,12 +1,11 @@
 import React from "react";
+import HeroCard from "../HeroCard";
 
 const blob = () => {
   return (
-    <section>
-      <h1 className="mx-auto w-auto bg-black-100 josh  space-y-10">
-        Hello my name is Josh.
-      </h1>
-    </section>
+    <HeroCard>
+      <h1 className="text-6xl">Hello my name is Josh.</h1>
+    </HeroCard>
   );
 };
 

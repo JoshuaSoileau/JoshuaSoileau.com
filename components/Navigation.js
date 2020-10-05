@@ -14,17 +14,22 @@ export default class Navigation extends Component {
     // there is a click handler on div.backdrop to close the
     // nav if the user clicks outside of the navigation component
     return (
-      <ul>
-        {config.navigation.map((item) => {
-          return (
-            <li className="mx-2" key={item.link}>
-              <Link href={item.link}>
-                <a>{item.text}</a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="absolute inset-x-0 container relative flex flex-row justify-between items-center">
+        <Link href="/">
+          <a className="block p-4  text-bold text-3xl">JS</a>
+        </Link>
+        <ul className="flex flex-row align-center">
+          {config.navigation.map((item) => {
+            return (
+              <li key={item.link}>
+                <Link href={item.link}>
+                  <a className="block p-4">{item.text}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }
