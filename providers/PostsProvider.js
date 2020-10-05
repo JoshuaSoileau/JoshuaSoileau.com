@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 
-const PostsContext = React.createContext();
+const PostsContext = React.createContext({
+  allPosts: [],
+});
 
 export const PostsProvider = ({ children, ...props }) => {
   return (

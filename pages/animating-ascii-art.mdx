@@ -1,0 +1,19 @@
+import BlogMeta from "../components/BlogMeta";
+
+export const meta = {
+  title: "Animating ASCII Art",
+  // the first tag below will be used in <meta property="article:tag" content="first-tag" />
+  tags: ["tag-1", "tag-2"],
+  layout: "blog-layout",
+  publishDate: "2011-01-01",
+  modifiedDate: false, // "If used it must be in 'YYYY-MM-DD format' like publishDate"
+  seoDescription: "In this post I <keyword> with <keyword>. And blah blah.",
+  exclude: false,
+  hideProgressBar: false,
+};
+
+<BlogMeta data={props} />
+
+No need to add a title, as it is in the `meta` data above and will auto-magically show up your post. See the `renderLayout` method in `utils/render-app-layout.js` to see how the blog layout is constructed.
+
+The `exclude` can be excluded (ha!) unless you want this post to be excluded from the post list on the `/blog` page.

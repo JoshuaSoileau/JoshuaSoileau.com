@@ -16,7 +16,7 @@ const Homepage = () => {
     <>
       <Blob />
       <HeroCard align="start">
-        <div class="prose prose-xl  py-10" id="experiments">
+        <div className="prose prose-xl  py-10" id="experiments">
           <h2>Experiments</h2>
           <p>Things I built because they&apos;re fun to play with.</p>
           <ul>
@@ -31,7 +31,7 @@ const Homepage = () => {
             })}
           </ul>
         </div>
-        <div class="prose prose-xl  py-12" id="blog">
+        <div className="prose prose-xl  py-12" id="blog">
           <h2>Quick hits</h2>
           <p>Short blog posts, usually about how to do 1 specific thing.</p>
           <ul>
