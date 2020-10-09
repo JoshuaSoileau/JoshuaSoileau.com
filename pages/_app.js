@@ -19,18 +19,18 @@ export default class MyApp extends App {
     this.state = { navOpen: false, postData: props.postData };
   }
 
-  static async getStaticProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
-    if (Component.getStaticProps) {
-      pageProps = await Component.getStaticProps(ctx);
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
     }
 
     const [allData, postData] = await Promise.all([
       BlogEngine(),
       getPostData(router),
     ]).catch((error) =>
-      console.error("Error in _app.js getStaticProps()", error)
+      console.error("Error in _app.js getInitialProps()", error)
     );
 
     const propsObj = Object.assign({}, { postData, allData, ...pageProps });
