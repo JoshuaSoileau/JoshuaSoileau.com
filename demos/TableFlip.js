@@ -1,34 +1,47 @@
 import React from "react";
 
-const TableFlip = () => {
+const TableFlip = ({
+  tableStyle,
+  bodyStyle,
+  armStyle,
+  faceContent = "°□°",
+  windStyle,
+  bodyClass,
+  faceClass,
+  armClass,
+  tableClass,
+  windClass,
+}) => {
   return (
-    <div>
-      (╯°□°)╯︵ ┻━┻
-      <span className="text-sm inline block mt-10 prose prose-xl">
-        <span className="head">
-          (<span className="arm" />
-          <span className="eye" />
-          <span className="mouth" />
-          <span className="eye" />
-          (<span className="arm" />
-        </span>
-        ︵<span className="table">┻━┻</span>
+    <div className="table-flip">
+      <span className={`body ${bodyClass}`} style={bodyStyle}>
+        {`(`}
+        {/* prettier-ignore */}
+        <span className={`arm ${armClass}`} style={armStyle}>╯</span>
+        {/* prettier-ignore */}
+        <span className={`eye ${faceClass}`}>{faceContent}</span>
+        {`)`}
+        {/* prettier-ignore */}
+        <span className={`arm ${armClass}`} style={armStyle}>╯</span>
+      </span>
+      <span className={`wind mr-2 ${windClass}`} style={windStyle}>
+        ︵
+      </span>
+      <span className={`table ${tableClass}`} style={tableStyle}>
+        ┻━┻
       </span>
       <style jsx>{`
+        div,
         span {
-          display: inline;
+          transition: all 300 ms ease-in-out;
         }
-        .arm:before {
-          content: "╯";
-          display: block;
+        span {
+          display: inline-block;
         }
-        .eye:before {
-          content: "°";
-          display: block;
-        }
-        .mouth:before {
-          content: "□";
-          display: block;
+
+        .arm,
+        .table {
+          transform-origin: left 50%;
         }
       `}</style>
     </div>

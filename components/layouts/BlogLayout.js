@@ -1,10 +1,5 @@
 import React from "react";
 
 export default ({ children }) => (
-    <div className="blog-layout">
-        {children}
-        <style jsx>{`
-            margin: auto;
-        `}</style>
-    </div>
+  <div className="blog-layout pt-64">{children}</div>
 );
