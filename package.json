@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "A starter kit for creating a static website blog using Next.js and MDX",
   "scripts": {
-    "dev": "NODE_ENV=development next",
-    "build": "NODE_ENV=production next build",
-    "build-dev": "NODE_ENV=development next build",
-    "start": "NODE_ENV=production next start",
-    "clean": "rm -rf .next ; npm ci ; NODE_ENV=development npm run dev",
-    "now-build": "next build && next export -o dist",
-    "test": "jest"
+    "dev": "next",
+    "build": "next build",
+    "postbuild": "next-on-netlify"
   },
   "keywords": [
     "next.js",
