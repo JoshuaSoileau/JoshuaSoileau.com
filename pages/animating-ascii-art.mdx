@@ -1,0 +1,250 @@
+import { useState } from "react";
+import SplitViewBorder from "../components/SplitViewBorder";
+import Callout from "../components/Callout";
+import Breakout from "../components/Breakout";
+import TableFlip from "../demos/TableFlip";
+import TableFlipHighlight from "../demos/TableFlipHighlight";
+import TableFlipStaticToggle from "../demos/TableFlipStaticToggle";
+
+export const meta = {
+  title: "Animating ASCII art with pure CSS",
+  // the first tag below will be used in <meta property="article:tag" content="first-tag" />
+  tags: ["css", "animation"],
+  layout: "blog-layout",
+  publishDate: "2020-10-09",
+  modifiedDate: false, // "If used it must be in 'YYYY-MM-DD format' like publishDate"
+  seoDescription:
+    'Using simple CSS transitions & animations to add interactivity to the classic "Table Flip" ASCII art.',
+  exclude: false,
+  hideProgressBar: false,
+};
+
+<div className="text-center mb-6 md:mb-32 text-xl md:text-5xl">
+  <TableFlip />
+</div>
+
+Sometimes I get so angry 💢 that an emoji doesn't do it justice.
+Emoji's, even the "angry" ones, come with an unspoken childlike joy that you can't really get rid of. Classic 1990s ASCII art feels like it has more of an edge.
+
+But even then, it's still not satisfying enough.
+
+Sometimes I've been stuck on a bug for 3 hours. Almost every time, it's because I did something stupid like export something in the wrong way from one of my files.
+
+Sometimes I want to flip my table.
+
+But we live in a digital world, and sending a static set of characters to my coworkers is an ineffective way of conveying my frustration with my own stupidity.
+
+I wish we could see the table flip. So let's do that. Let's animate the table flip.
+
+## What really is ASCII, and how can we animate it? 🤔
+
+ASCII art is just a sequence specially-encoded characters called [ASCII characters](https://en.wikipedia.org/wiki/ASCII).
+
+Our table flip drawing is this sequence of characters:
+
+```
+(╯°□°)╯︵ ┻━┻
+```
+
+If we want to animate the table flipping, we're going to have to animated a few of these characters in different ways. To accomplish that, I'll break each of these characters into their own span.
+
+```html
+{`<span className="body">
+  ( // (
+  <span className="arm">╯</span> // (╯ <span className="eye">°</span> // (╯°
+  <span className="mouth">□</span> // (╯°□ <span className="eye">°</span> //
+  (╯°□° ) // (╯°□°) <span className="arm">╯</span> // (╯°□°)╯
+</span>
+<span className="wind">︵</span> // (╯°□°)╯︵
+<span className="table"> ┻━┻ // (╯°□°)╯︵┻━┻ </span>`}
+```
+
+Once we've broken this out into separate elements, we can start to visualize which elements are going to be getting animated with CSS.
+
+<TableFlipHighlight />
+
+---
+
+## 🚫 Sidenote: Animations can be scary.
+
+If you haven't created a bunch of animations before, then figuring out how animations work is kind of like reading heiroglyphics.
+If you ever come across an animation online that catches your eye or impresses you, _it did not happen by accident_. Someone intentionally laid out the parts of that animation such that they had the effect that impressed you.
+
+Making something as neat as those animations might seem like a pipe dream. But the person who created it, at one point, had never done any animation work before.
+
+_Here's a little secret that nobody really talks about:_ learning animation is just like learning Javascript or React.
+
+It sucks and is hard at first.
+
+The first thing you build is going to be **hella-jank**. It's gonna look bad. That's a good thing. That's expected.
+
+Youre first _good_ projects will be really simple in their approach.
+
+Then you'll learn something a little more complex. And it'll break and look bad.
+
+Once you get the slightly more advanced project working well, you'll find some other shiny 3rd party tool to help you create generative, interactive, 3 dimensional bologna, powered by artificial intelligence and orphaned kittens. And its gonna suck and be hard. Till you practice it enough to get comfortable, and even then, its only slightly easier.
+
+<Callout color="blue">
+  This, like everything, is supposed to take time to get good at. Don't let the
+  fact that it's <em>hard</em> the first time you do it deter you from
+  practicing it. Eventually you'll get comfortable enough to look at animations
+  across the web and take really good guesses at how they work. Then, recreating
+  them becomes simple.
+</Callout>
+
+Back to our regular programming...
+
+---
+
+## 1️⃣ 2️⃣ 3️⃣ <br/><br/>The steps for animating our ASCII art
+
+We can break down the process of animating <small className="mx-2 inline-block">(╯°□°)╯︵┻━┻</small> into the following:
+
+1. Determine the different "states" of the animation.
+2. Figure out the CSS you need to achieve each state.
+3. Choose an approach for animating the CSS values between each of the states you chose (there are a lot of options for this).
+
+We're going to do them in order.
+
+### 1. Determine the different "states" of the animation
+
+For our table flipping animation, we will have 3 states.
+
+1. **Pre-flip.** This version has the table sitting upright, the character's arms at their side, and the wind animation is not visible yet. The face looks annoyed.
+2. **About-to-flip.** In this version, the character is about to flip the table. His hands are slightly raised towards the table, and his body is tilted as if he's about to pick it up. The face looks strained.
+3. **Post-flip.** This is the normal state of the original ASCII art. The table has flipped. The world is burning down. Dogs and cats are living together, etc etc. The face looks like the original.
+
+To visualize, this is what each "state" of the animation will look like:
+
+<Breakout>
+  <SplitViewBorder>
+    <div className="flex flex-col items-center justify-center pt-8">
+      <TableFlip
+        armStyle={{
+          transform: "rotate(90deg)",
+        }}
+        faceContent="—_—"
+        windStyle={{
+          opacity: 0,
+          transform: "scale(0.8) rotat(10deg)",
+        }}
+        tableStyle={{
+          transform: "rotate(180deg) translateX(-30px)",
+        }}
+      />
+      <div className="mt-8 font-bold text-purple-600">State 1</div>
+      <div className="text-purple-500 text-sm">Pre-flip</div>
+    </div>
+    <div className="flex flex-col items-center justify-center pt-8">
+      <TableFlip
+        bodyStyle={{
+          transform: "translate(20px, -23px) rotate(30deg)",
+        }}
+        armStyle={{
+          transform: "rotate(90deg)",
+        }}
+        faceContent=">.<"
+        windStyle={{
+          opacity: 0,
+          transform: "scale(0.8) rotat(10deg)",
+        }}
+        tableStyle={{
+          transform: "rotate(180deg) translateX(-30px)",
+        }}
+      />
+      <div className="mt-8 font-bold text-green-600">State 2</div>
+      <div className="text-green-500 text-sm">About-to-flip</div>
+    </div>
+    <div className="flex flex-col items-center justify-center pt-8">
+      <TableFlip
+        windStyle={{
+          opacity: 1,
+          transform: "scale(1) rotat(0)",
+        }}
+      />
+      <div className="mt-8 font-bold text-blue-600">State 3</div>
+      <div className="text-blue-500 text-sm">Post-flip</div>
+    </div>
+  </SplitViewBorder>
+</Breakout>
+
+It seems so simple, but there's a surprising amount of work behind creating that.
+
+### 2. Figure out the CSS you need to achieve each state.
+
+Notice how the face literally changes it's characters. The contents in those spans changes from `°□°` to `—_—` and `>.<`. This is different then what I laid out at the beginning of this post, where I said we would lay each character out inside of it's own `<span>` tag.
+
+Instead of having this:
+
+```html
+{`<span class="eye">°</span>
+<span class="mouth">□</span>
+<span class="eye">°</span>`}
+```
+
+I am going to combine them into a single element called `.face`.
+
+On top of that, I am going to pull the characters themselves _out of the HTML_, and put the into the CSS, using the `content` property on the `.face::before` pseudo-element.
+
+```html
+{`<span class="face"> </span>`}
+```
+
+```css
+  {`.face::before {
+  content: "°□°";
+}`}
+```
+
+Once this value is in CSS, we can use CSS transitions & animations to change it.
+
+This is the sneaky trick we're going to use to change the face on our ASCII character.
+
+<Callout color="yellow">
+  <div className="flex items-center mb-2 ">
+    🔥
+    <span className="ml-4 font-bold text-yellow-900 text-2xl">Hot Tip</span>
+  </div>
+  You can cheat a little and change the characters in our ASCII art by moving them
+  into CSS, and changing them there.
+</Callout>
+
+Because `State 3` is exactly the same as the original, we are going to start there.
+
+States 1 and 2 are created by applying CSS transforms to State 3.
+
+<TableFlipStaticToggle />
+
+Use the box above to toy around and look at the CSS for each piece of our ASCII art at the 3 different states.
+
+Notice how `State 3` has no CSS. Like I said, this is because state 3 is the original, non-adjusted ASCII character.
+
+We now know what CSS properties we need to change to get us to the various states.
+
+### 3. Choosing the right tools for doing animation on the web
+
+This is where our world gets a little hairy.
+
+There are so freaking many web animation tools that you can drown in them. I feel like Scrooge McDuck swimming in a pile of coins anytime I peak my head out of my little personal bubble to see what's changed in Web Dev animation.
+
+And you know what the very best part is? No matter which one you choose, someone is going to give you hell for it. Some greater-than-thou twitter troll is going to tell you the way you did things is stupid and you should feel bad.
+
+Don't listen to that moron. Did the way you did it work? Good, that's all that matters.
+
+<div>
+  More or less, you can categorize the way you do animation into a few buckets.
+</div>
+
+<small className="text-purple-700">
+  Oh boy. Gross over-simplification incoming... Don't @me
+</small>
+
+1. **Pure CSS / HTML** &mdash; this is using CSS transitions & keyframe animations along with cleverly laid out HTML, _and nothing else,_ to acheive the animations you are want.
+2. **SVG Animation** &mdash; there is an entire wonderful world of SVG animation available right now. SVGs have built-in support for animating things using simple HTML-like syntax. At some point though, it becomes simpler to organize your animations using a supplementary JS library for SVG animations like [GSAP](https://greensock.com/gsap/). Which brings us to...
+3. **JS based approaches** &mdash; this is a laughably wide bucket, but the idea is you use custom javascript logic to change the styling of your elements. This category has overlap with CSS & SVG animations, and many of the most popular libraries make use of built-in APIs for both. This bucket might be using 3rd party libraries like [GSAP](https://greensock.com/gsap/), [Three.js](https://threejs.org/), or [React Spring](https://www.react-spring.io/). It might be modifying the style properties on your HTML directly using the [DOM API](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) and [window.requestAnimationFrame()](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It might be animation using HTML Canvas and literally drawing images using javascript. Like I said, this is a wide bucket.
+
+<SplitViewBorder>@TODO: add pros/cons table here</SplitViewBorder>
+
+If you've never done web animation before, I cannot emphasize enough that you should start with `Pure CSS / HTML` as your approach. Learning how to do things using the most basic tools is going to give you a better understanding of how things work under the hood.
+
+If you only ever rely on a JS library to change `letter A` to `letter Z`, you may never realize that there are 24 other letters that you have to go through to get there. And when `<popular_js_library>` has a bug and doesn't render `letter H`, it's going to be pretty doggone hard for you to figure out that it's missing and how to fix it.
