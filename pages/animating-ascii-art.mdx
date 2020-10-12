@@ -48,15 +48,21 @@ Our table flip drawing is this sequence of characters:
 
 If we want to animate the table flipping, we're going to have to animated a few of these characters in different ways. To accomplish that, I'll break each of these characters into their own span.
 
+<!-- prettier-ignore -->
 ```html
-{`<span className="body">
-  ( // (
-  <span className="arm">╯</span> // (╯ <span className="eye">°</span> // (╯°
-  <span className="mouth">□</span> // (╯°□ <span className="eye">°</span> //
-  (╯°□° ) // (╯°□°) <span className="arm">╯</span> // (╯°□°)╯
+<span className="body">
+  (                                 // (
+  <span className="arm">╯</span>    // (╯
+  <span className="eye">°</span>    // (╯°
+  <span className="mouth">□</span>  // (╯°□
+  <span className="eye">°</span>    // (╯°□°
+  )                                 // (╯°□°)
+  <span className="arm">╯</span>    // (╯°□°)╯
 </span>
-<span className="wind">︵</span> // (╯°□°)╯︵
-<span className="table"> ┻━┻ // (╯°□°)╯︵┻━┻ </span>`}
+<span className="wind">︵</span>    // (╯°□°)╯︵
+<span className="table">
+  ┻━┻                               // (╯°□°)╯︵┻━┻
+</span>
 ```
 
 Once we've broken this out into separate elements, we can start to visualize which elements are going to be getting animated with CSS.
@@ -177,9 +183,9 @@ Notice how the face literally changes it's characters. The contents in those spa
 Instead of having this:
 
 ```html
-{`<span class="eye">°</span>
+<span class="eye">°</span>
 <span class="mouth">□</span>
-<span class="eye">°</span>`}
+<span class="eye">°</span>
 ```
 
 I am going to combine them into a single element called `.face`.
@@ -187,13 +193,13 @@ I am going to combine them into a single element called `.face`.
 On top of that, I am going to pull the characters themselves _out of the HTML_, and put the into the CSS, using the `content` property on the `.face::before` pseudo-element.
 
 ```html
-{`<span class="face"> </span>`}
+<span class="face"> </span>
 ```
 
 ```css
-  {`.face::before {
+.face::before {
   content: "°□°";
-}`}
+}
 ```
 
 Once this value is in CSS, we can use CSS transitions & animations to change it.

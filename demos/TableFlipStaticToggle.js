@@ -149,7 +149,7 @@ const TableFlipStaticToggle = () => {
             </div>
           </div>
           <div className="-mt-4 -mb-6 -mx-8 h-full">
-            <pre class="language-css">
+            <pre className="language-css">
               <code>{css}</code>
             </pre>
           </div>

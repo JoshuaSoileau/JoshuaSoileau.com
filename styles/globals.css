@@ -1,16 +1,107 @@
-html,
-body {
-  padding: 0;
+@tailwind base;
+@tailwind components;
+
+.break-container {
+  left: 50%;
+  max-width: 100vw;
+  padding: 0 20px;
+  position: relative;
+  right: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
+.prose hr {
+  border-top-width: 4px;
+}
+
+.split-view pre {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  border-radius: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 100;
+  font-style: normal;
+  src: url("/static/fonts/Lato-Thin.ttf");
 }
 
-* {
-  box-sizing: border-box;
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 100;
+  font-style: italic;
+  src: url("/static/fonts/Lato-ThinItalic.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 300;
+  font-style: normal;
+  src: url("/static/fonts/Lato-Light.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 300;
+  font-style: italic;
+  src: url("/static/fonts/Lato-LightItalic.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 500;
+  font-style: normal;
+  src: url("/static/fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 500;
+  font-style: italic;
+  src: url("/static/fonts/Lato-Italic.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 700;
+  font-style: normal;
+  src: url("/static/fonts/Lato-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 700;
+  font-style: italic;
+  src: url("/static/fonts/Lato-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 900;
+  font-style: normal;
+  src: url("/static/fonts/Lato-Black.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: auto; /* Important for performance */
+  font-weight: 900;
+  font-style: italic;
+  src: url("/static/fonts/Lato-BlackItalic.ttf");
+}
+html {
+  scroll-behavior: smooth;
+  font-family: "Lato";
 }

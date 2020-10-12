@@ -1,6 +1,9 @@
 import Head from "next/head";
+import { useRef } from "react";
+import ProgressBar from "../components/ProgressBar";
 
 export default function Layout({ children, pageTitle, description }) {
+  const main = useRef(null);
   return (
     <>
       <Head>
@@ -10,8 +13,9 @@ export default function Layout({ children, pageTitle, description }) {
         <title>{pageTitle}</title>
       </Head>
       <style jsx global>{``}</style>
-      <main>
-        <div className="content">{children}</div>
+      <ProgressBar target={main} />
+      <main ref={main}>
+        <div className="content  prose prose-xl mx-auto">{children}</div>
       </main>
     </>
   );
