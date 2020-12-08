@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      This is the header I think
+      <span className="hidden">This is the header</span>
       <Component {...pageProps} />
     </Layout>
   );
