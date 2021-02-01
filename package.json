@@ -8,8 +8,25 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.4",
+    "gray-matter": "^4.0.2",
     "next": "10.0.6",
+    "postcss": "^8.2.4",
+    "raw-loader": "^4.0.2",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-gtm-module": "^2.0.11",
+    "react-markdown": "^5.0.3",
+    "styled-components": "^5.2.1",
+    "tailwindcss": "^2.0.2",
+    "twin.macro": "^2.2.0",
+    "webfontloader": "^1.6.28"
+  },
+  "babelMacros": {
+    "twin": {
+      "config": "./tailwind.config.js",
+      "preset": "styled-components"
+    }
   }
 }
