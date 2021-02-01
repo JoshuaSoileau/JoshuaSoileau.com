@@ -4,6 +4,7 @@ import PostList from "@components/PostList";
 import "twin.macro";
 
 const Index = ({ title, description, posts, ...props }) => {
+  // test
   return (
     <Layout pageTitle={title}>
       <div tw="prose prose-xl">
