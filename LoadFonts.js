@@ -16,10 +16,13 @@ const LoadFont = (font) =>
     link.rel = "stylesheet";
     document.head.appendChild(link);
     const roboto = new FontFaceObserver(font.name);
-    roboto.load().then(() => {
-      document.documentElement.classList.add(font.name);
-      resolve();
-    });
+    roboto
+      .load()
+      .then(() => {
+        document.documentElement.classList.add(font.name);
+        resolve();
+      })
+      .catch(reject);
   });
 
 const LoadFonts = () =>

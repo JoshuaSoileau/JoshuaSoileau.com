@@ -14,8 +14,8 @@ export default function Layout({ children, pageTitle, ...props }) {
         />
       </Head>
       <Header />
-      <section className="layout container text-xl">
-        <div className="content">{children}</div>
+      <section tw="container mx-auto text-xl">
+        <div>{children}</div>
       </section>
       <footer>Built by me!</footer>
     </>
