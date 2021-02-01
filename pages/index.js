@@ -1,15 +1,16 @@
 import matter from "gray-matter";
 import Layout from "@components/Layout";
 import PostList from "@components/PostList";
+import "twin.macro";
 
 const Index = ({ title, description, posts, ...props }) => {
   return (
     <Layout pageTitle={title}>
-      <h1 className="title">Welcome to my blog!</h1>
-      <p className="description">{description}</p>
-      <main>
+      <div tw="prose prose-xl">
+        <h1 className="title">I'm Joshua Soileau!</h1>
+        <p>Words</p>
         <PostList posts={posts} />
-      </main>
+      </div>
     </Layout>
   );
 };
