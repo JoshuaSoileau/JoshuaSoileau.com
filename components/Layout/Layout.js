@@ -5,11 +5,11 @@ import tw, { styled } from "twin.macro";
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
 
-const Main = styled.div(({ opacity }) => [
-  tw`container text-xl flex-grow flex flex-col justify-center py-24`,
-  `opacity: ${opacity};`,
-  `transition: all 500ms ease;`,
-]);
+const Main = styled.div`
+  ${tw`container text-xl flex-grow flex flex-col justify-center py-24`}
+  opacity: ${(props) => props.opacity};
+  transition: all 500ms ease;
+`;
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [opacity, setOpacity] = useState(0);
