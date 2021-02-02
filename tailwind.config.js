@@ -1,4 +1,4 @@
-const plugin = require("tailwindcss/plugin");
+// const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 const fonts = require("./fonts.json");
@@ -36,13 +36,13 @@ module.exports = {
   purge: ["./src/**/*.js"],
   plugins: [
     require("@tailwindcss/typography"),
-    plugin(({ addVariant, e }) => {
-      addVariant("empty", ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.empty${e(separator + className)}:empty`;
-        });
-      });
-    }),
+    // plugin(({ addVariant, e }) => {
+    //   addVariant("empty", ({ modifySelectors, separator }) => {
+    //     modifySelectors(({ className }) => {
+    //       return `.empty${e(separator + className)}:empty`;
+    //     });
+    //   });
+    // }),
   ],
   theme: {
     extend: {
@@ -134,10 +134,11 @@ module.exports = {
   },
   variants: {
     extend: {
-      display: ["empty"],
-      margin: ["first", "last", "empty"],
-      opacity: ["empty"],
-      padding: ["empty"],
+      // display: ["empty"],
+      // margin: ["first", "last", "empty"],
+      margin: ["first", "last"],
+      // opacity: ["empty"],
+      // padding: ["empty"],
       scale: ["active", "group-hover"],
     },
   },
