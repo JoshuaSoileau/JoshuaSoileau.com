@@ -17,7 +17,7 @@ export default function Layout({ children, pageTitle, ...props }) {
   useEffect(() => setOpacity(1), []);
 
   return (
-    <div tw="flex flex-col items-center  min-h-screen">
+    <div tw="flex flex-col items-center min-h-screen">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{pageTitle}</title>
