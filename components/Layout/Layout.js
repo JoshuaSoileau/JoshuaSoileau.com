@@ -1,5 +1,5 @@
 import Head from "next/head";
-import "twin.macro";
+import tw, { css } from "twin.macro";
 
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
@@ -21,11 +21,10 @@ export default function Layout({ children, pageTitle, ...props }) {
         />
       </Head>
       <div
-        tw="flex flex-col items-center  min-h-screen"
-        style={{
-          opacity,
-          transition: "all 500ms ease",
-        }}
+        css={[
+          tw`flex flex-col items-center  min-h-screen`,
+          `opacity: ${opacity}; transition: all 500ms ease;`,
+        ]}
       >
         <Header />
         <main tw="container text-xl flex-grow flex flex-col justify-center py-24">
