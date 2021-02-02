@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
-import tw, { css } from "twin.macro";
+import { css } from "twin.macro";
 
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
-import { useEffect, useState } from "react";
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [opacity, setOpacity] = useState(0);
@@ -23,9 +23,12 @@ export default function Layout({ children, pageTitle, ...props }) {
       <div tw="flex flex-col items-center  min-h-screen">
         <Header />
         <main
+          tw="container text-xl flex-grow flex flex-col justify-center py-24"
           css={[
-            tw`container text-xl flex-grow flex flex-col justify-center py-24`,
-            `opacity: ${opacity}; transition: all 500ms ease;`,
+            css`
+              opacity: ${opacity};
+              transition: all 500ms ease;
+            `,
           ]}
         >
           {children}

@@ -8,7 +8,6 @@ const LoadFont = (font) =>
   new Promise((resolve, reject) => {
     if (!font) resolve();
 
-    console.log(font);
     const link = document.createElement("link");
     link.href = `https://fonts.googleapis.com/css?family=${
       font.name
@@ -28,18 +27,8 @@ const LoadFont = (font) =>
 const LoadFonts = () =>
   Promise.all([
     ...Object.values(baseFonts).map(LoadFont),
+    /** TODO: this is going to break because the "value" here is an array... */
     ...Object.values(others).map(LoadFont),
   ]);
 
 export default LoadFonts;
-// import WebFontLoader from "webfontloader";
-
-// WebFontLoader.load({
-//   google: {
-//     families: [
-//       `${fonts.sans.name}:${fonts.sans.weights.join(",")}`,
-//       `${fonts.serif.name}:${fonts.serif.weights.join(",")}`,
-//       ...fonts.others.map((item) => `${item.name}:${item.weights.join(",")}`),
-//     ],
-//   },
-// });
