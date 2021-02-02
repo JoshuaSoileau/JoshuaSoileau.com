@@ -1,11 +1,11 @@
 {
   "sans": {
     "name": "Lato",
-    "weights": [300, 400, 500, 700]
+    "weights": [300, 400, 500, 700, 900]
   },
   "serif": {
     "name": "Vollkorn",
-    "weights": [300, 500, 700]
+    "weights": [300, 400, 500, 700, 900]
   },
   "others": []
 }

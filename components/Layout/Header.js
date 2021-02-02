@@ -4,7 +4,7 @@ import "twin.macro";
 export default function Header() {
   return (
     <>
-      <header tw="container">
+      <header tw="w-full max-w-md  px-8">
         <nav tw="flex justify-end items-center py-6  text-xl">
           <Link href="/">
             <a tw="mr-auto">📖 JS</a>
