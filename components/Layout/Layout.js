@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { styled } from "twin.macro";
+import tw, { styled } from "twin.macro";
 
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
 
-const Main = styled.main(({ opacity = 0 }) => [
+const Main = styled.main(({ opacity }) => [
+  tw`container text-xl flex-grow flex flex-col justify-center py-24`,
   `opacity: ${opacity};`,
   `transition: all 500ms ease;`,
 ]);
