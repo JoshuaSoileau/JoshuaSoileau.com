@@ -5,6 +5,7 @@ import tw, { css } from "twin.macro";
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
 import useInterval from "hooks/useInterval";
+import Container from "./Container";
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [opacity, setOpacity] = useState(0);
@@ -34,7 +35,7 @@ export default function Layout({ children, pageTitle, ...props }) {
       <div tw="flex flex-col items-center  min-h-screen">
         <Header />
         <main
-          tw="w-full max-w-md  px-8 text-xl flex-grow flex flex-col justify-center py-24"
+          tw="flex-grow flex flex-col justify-center py-24 w-full"
           css={[
             css`
               opacity: ${opacity};
@@ -42,7 +43,7 @@ export default function Layout({ children, pageTitle, ...props }) {
             `,
           ]}
         >
-          {children}
+          <Container>{children}</Container>
         </main>
         <Footer />
       </div>

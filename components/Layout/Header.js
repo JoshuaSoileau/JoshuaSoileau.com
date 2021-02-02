@@ -1,10 +1,11 @@
 import Link from "next/link";
 import "twin.macro";
+import Container from "./Container";
 
 export default function Header() {
   return (
     <>
-      <header tw="w-full max-w-md  px-8">
+      <Container as="header">
         <nav tw="flex justify-end items-center py-6  text-xl">
           <Link href="/">
             <a tw="mr-auto">📖 JS</a>
@@ -16,7 +17,7 @@ export default function Header() {
             <a tw="mr-8 last:mr-0">About</a>
           </Link>
         </nav>
-      </header>
+      </Container>
     </>
   );
 }

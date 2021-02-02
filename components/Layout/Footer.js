@@ -1,8 +1,13 @@
 import React from "react";
 import "twin.macro";
+import Container from "./Container";
 
 const Footer = () => {
-  return <footer tw="w-full max-w-md  px-8 py-6">Built by me!</footer>;
+  return (
+    <Container as="footer">
+      <div tw="py-6">Built by me!</div>
+    </Container>
+  );
 };
 
 export default Footer;
