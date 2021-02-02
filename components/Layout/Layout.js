@@ -1,6 +1,7 @@
 import Head from "next/head";
 import "twin.macro";
-import Header from "@components/Header";
+import Header from "@components/Layout/Header";
+import Footer from "@components/Layout/Footer";
 
 export default function Layout({ children, pageTitle, ...props }) {
   return (
@@ -18,7 +19,7 @@ export default function Layout({ children, pageTitle, ...props }) {
         <main tw="container text-xl flex-grow flex flex-col justify-center py-24">
           {children}
         </main>
-        <footer tw="container">Built by me!</footer>
+        <Footer />
       </div>
     </>
   );

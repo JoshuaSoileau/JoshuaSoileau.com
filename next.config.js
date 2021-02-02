@@ -5,11 +5,6 @@ module.exports = {
       test: /\.md$/,
       use: "raw-loader",
     });
-    return {
-      ...config,
-      node: {
-        fs: "empty",
-      },
-    };
+    return config;
   },
 };
