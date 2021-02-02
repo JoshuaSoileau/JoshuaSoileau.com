@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { css } from "twin.macro";
+import { styled } from "twin.macro";
 
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
+
+const Main = styled.main(({ opacity = 0 }) => [
+  `opacity: ${opacity};`,
+  `transition: all 500ms ease;`,
+]);
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [opacity, setOpacity] = useState(0);
@@ -22,17 +27,7 @@ export default function Layout({ children, pageTitle, ...props }) {
       </Head>
       <div tw="flex flex-col items-center  min-h-screen">
         <Header />
-        <main
-          tw="container text-xl flex-grow flex flex-col justify-center py-24"
-          css={[
-            css`
-              opacity: ${opacity};
-              transition: all 500ms ease;
-            `,
-          ]}
-        >
-          {children}
-        </main>
+        <Main opacity={opacity}>{children}</Main>
         <Footer />
       </div>
     </>
