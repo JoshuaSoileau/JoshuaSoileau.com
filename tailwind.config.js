@@ -34,6 +34,16 @@ let makeShadow = (name, rgb) => {
 
 module.exports = {
   purge: ["./src/**/*.js"],
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(({ addVariant, e }) => {
+      addVariant("empty", ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.empty${e(separator + className)}:empty`;
+        });
+      });
+    }),
+  ],
   theme: {
     extend: {
       screens: {
@@ -131,14 +141,4 @@ module.exports = {
       scale: ["active", "group-hover"],
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    plugin(({ addVariant, e }) => {
-      addVariant("empty", ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.empty${e(separator + className)}:empty`;
-        });
-      });
-    }),
-  ],
 };
