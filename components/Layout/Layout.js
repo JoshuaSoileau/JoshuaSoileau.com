@@ -1,9 +1,15 @@
 import Head from "next/head";
 import "twin.macro";
+
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
+import { useEffect, useState } from "react";
 
 export default function Layout({ children, pageTitle, ...props }) {
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => setOpacity(1), []);
+
   return (
     <>
       <Head>
@@ -14,7 +20,13 @@ export default function Layout({ children, pageTitle, ...props }) {
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>"
         />
       </Head>
-      <div tw="flex flex-col items-center  min-h-screen">
+      <div
+        tw="flex flex-col items-center  min-h-screen"
+        style={{
+          opacity,
+          transition: "all 500ms ease",
+        }}
+      >
         <Header />
         <main tw="container text-xl flex-grow flex flex-col justify-center py-24">
           {children}
