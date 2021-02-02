@@ -5,7 +5,7 @@ import tw, { styled } from "twin.macro";
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
 
-const Main = styled.main(({ opacity }) => [
+const Main = styled.div(({ opacity }) => [
   tw`container text-xl flex-grow flex flex-col justify-center py-24`,
   `opacity: ${opacity};`,
   `transition: all 500ms ease;`,
@@ -28,7 +28,9 @@ export default function Layout({ children, pageTitle, ...props }) {
       </Head>
       <div tw="flex flex-col items-center  min-h-screen">
         <Header />
-        <Main opacity={opacity}>{children}</Main>
+        <Main opacity={opacity} as="main">
+          {children}
+        </Main>
         <Footer />
       </div>
     </>
