@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { GlobalStyles } from "twin.macro";
-
 import TagManager from "react-gtm-module";
+
+import GlobalStyles from "@components/GlobalStyles";
 import LoadFonts from "../LoadFonts";
 
 function MyApp({ Component, pageProps }) {
