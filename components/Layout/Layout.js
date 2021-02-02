@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import tw, { css } from "twin.macro";
+import "twin.macro";
 
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
@@ -27,17 +27,7 @@ export default function Layout({ children, pageTitle, ...props }) {
         />
       </Head>
       <Header />
-      <main
-        css={[
-          css`
-            & {
-              opacity: ${opacity};
-              transition: all 500ms ease;
-              ${tw`container text-xl flex-grow flex flex-col justify-center py-24`}
-            }
-          `,
-        ]}
-      >
+      <main tw="container text-xl flex-grow flex flex-col justify-center py-24">
         {children}
       </main>
       <Footer />
