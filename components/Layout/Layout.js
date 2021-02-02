@@ -17,7 +17,7 @@ export default function Layout({ children, pageTitle, ...props }) {
   useEffect(() => setOpacity(1), []);
 
   return (
-    <>
+    <div tw="flex flex-col items-center  min-h-screen">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{pageTitle}</title>
@@ -26,13 +26,11 @@ export default function Layout({ children, pageTitle, ...props }) {
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>"
         />
       </Head>
-      <div tw="flex flex-col items-center  min-h-screen">
-        <Header />
-        <Main opacity={opacity} as="main">
-          {children}
-        </Main>
-        <Footer />
-      </div>
-    </>
+      <Header />
+      <Main opacity={opacity} as="main">
+        {children}
+      </Main>
+      <Footer />
+    </div>
   );
 }
