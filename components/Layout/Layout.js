@@ -4,11 +4,22 @@ import tw, { css } from "twin.macro";
 
 import Header from "@components/Layout/Header";
 import Footer from "@components/Layout/Footer";
+import useInterval from "hooks/useInterval";
 
 export default function Layout({ children, pageTitle, ...props }) {
   const [opacity, setOpacity] = useState(0);
+  const [favicon, setFavicon] = useState("📖");
+
+  const toggleFavicon = () => {
+    setFavicon(favicon === "📖" ? "🔨" : "📖");
+  };
 
   useEffect(() => setOpacity(1), []);
+
+  useInterval(
+    toggleFavicon,
+    process?.env?.NODE_ENV === "development" ? 1500 : null
+  );
 
   return (
     <>
@@ -17,7 +28,7 @@ export default function Layout({ children, pageTitle, ...props }) {
         <title>{pageTitle}</title>
         <link
           rel="icon"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>"
+          href={`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>${favicon}</text></svg>`}
         />
       </Head>
       <div tw="flex flex-col items-center  min-h-screen">
