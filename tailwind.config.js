@@ -95,6 +95,8 @@ module.exports = {
       fontSize: {
         "2xs": ["0.7rem", ".85rem"],
       },
+      height: (theme) => ({ ...theme("spacing") }),
+      minHeight: (theme) => ({ ...theme("spacing") }),
       minWidth: (theme) => ({
         ...theme("spacing"),
 
@@ -121,14 +123,53 @@ module.exports = {
 
         full: "100%",
       }),
+      maxHeight: (theme) => ({
+        ...theme("spacing"),
+
+        0: "0",
+        "1/6": "16.66%",
+        "1/4": "25%",
+        "3/4": "75%",
+        "1/2": "50%",
+        "1/3": "33.33%",
+        "2/3": "66.66%",
+
+        full: "100%",
+      }),
       spacing: (theme) => ({
         ...theme("screens"),
         "1/2": "50%",
         "2/3": "66.66%",
+
+        "10vw": "10vw",
+        "20vw": "20vw",
+        "30vw": "30vw",
+        "40vw": "40vw",
+        "50vw": "50vw",
+        "60vw": "60vw",
+        "70vw": "70vw",
+        "80vw": "80vw",
+        "90vw": "90vw",
+        "100vw": "100vw",
+
+        "10vh": "10vh",
+        "20vh": "20vh",
+        "30vh": "30vh",
+        "40vh": "40vh",
+        "50vh": "50vh",
+        "60vh": "60vh",
+        "70vh": "70vh",
+        "80vh": "80vh",
+        "90vh": "90vh",
+        "100vh": "100vh",
       }),
       transitionProperty: {
         height: "height",
         spacing: "margin, padding",
+      },
+      width: (theme) => ({ ...theme("spacing") }),
+      zIndex: {
+        "-1": -1,
       },
     },
   },

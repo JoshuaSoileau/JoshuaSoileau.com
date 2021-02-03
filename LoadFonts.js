@@ -18,7 +18,7 @@ const LoadFont = (font) =>
     roboto
       .load()
       .then(() => {
-        document.documentElement.classList.add(font.name);
+        document.documentElement.classList.add(font.title || font.name);
         resolve();
       })
       .catch(reject);
