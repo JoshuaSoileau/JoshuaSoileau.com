@@ -9,7 +9,8 @@ const Index = ({ title, description, posts, ...props }) => {
   return (
     <Layout pageTitle={title}>
       <H1>
-        My name is Joshua <small tw="mt-4 block">and I make things...</small>
+        My name is <span tw="text-indigo-500">Joshua</span>.
+        <small tw="mt-4 block">I made this website.</small>
       </H1>
 
       <div tw="prose prose-xl mt-14">
