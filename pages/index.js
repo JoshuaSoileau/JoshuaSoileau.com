@@ -3,20 +3,23 @@ import Layout from "@components/Layout/Layout";
 import PostList from "@components/PostList";
 import "twin.macro";
 import H1 from "@components/typography/H1";
+import RoundedBox from "@components/RoundedBox/RoundedBox";
 
 const Index = ({ title, description, posts, ...props }) => {
   // test
   return (
     <Layout pageTitle={title}>
-      <H1>
-        My name is <span tw="text-indigo-500">Joshua</span>.
-        <small tw="mt-4 block">I made this website.</small>
-      </H1>
+      <RoundedBox>
+        <H1>
+          My name is <span tw="text-indigo-500">Joshua</span>.
+          <small tw="mt-4 block">I made this website.</small>
+        </H1>
 
-      <div tw="prose prose-xl mt-14">
-        <p>Words</p>
-        <PostList posts={posts} />
-      </div>
+        <div tw="prose prose-xl mt-14">
+          <p>Words</p>
+          <PostList posts={posts} />
+        </div>
+      </RoundedBox>
     </Layout>
   );
 };
