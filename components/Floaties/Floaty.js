@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import tw, { css } from "twin.macro";
 import FadeIn from "@components/animated/FadeIn";
 import Rotate from "@components/animated/Rotate";
+import random from "@utils/random";
 
 const colors = {
   background: [
@@ -10,6 +11,12 @@ const colors = {
     tw`bg-pink-400`,
     tw`bg-yellow-400`,
   ],
+  border: [
+    tw`border-indigo-400`,
+    tw`border-green-400`,
+    tw`border-pink-400`,
+    tw`border-yellow-400`,
+  ],
 };
 
 const Rectangle = () => {
@@ -17,23 +24,39 @@ const Rectangle = () => {
     <div
       css={[
         tw`w-3 h-12  relative  transform scale-50`,
-        colors.background[Math.floor(Math.random() * colors.background.length)],
+        random(colors.background),
       ]}
     ></div>
   );
 };
 
 const Z = () => {
+  const color = random(colors.background);
   return (
-    <div tw="bg-blue-400 w-3 h-8 relative transform scale-50">
-      <div tw="bg-blue-400 w-3 h-8 transform origin-top-right rotate-90 absolute top-0" />
-      <div tw="bg-blue-400 w-3 h-8 transform origin-top-left -rotate-90 absolute top-full" />
+    <div css={[tw`w-3 h-8 relative transform scale-50`, color]}>
+      <div
+        css={[
+          tw`w-3 h-8 transform origin-top-right rotate-90 absolute top-0`,
+          color,
+        ]}
+      />
+      <div
+        css={[
+          tw`w-3 h-8 transform origin-top-left -rotate-90 absolute top-full`,
+          color,
+        ]}
+      />
     </div>
   );
 };
 
 const Circle = () => (
-  <div tw="w-6 h-6 rounded-full border-4 border-solid border-gray-800" />
+  <div
+    css={[
+      tw`w-6 h-6 rounded-full border-4 border-solid border-gray-800`,
+      random(colors.border),
+    ]}
+  />
 );
 
 const confettiObjects = [<Rectangle />, <Circle />, <Z />];
