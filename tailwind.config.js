@@ -88,8 +88,8 @@ module.exports = {
         lightBlue: colors.lightBlue,
       },
       fontFamily: {
-        sans: [fonts.sans.name, ...defaultTheme.fontFamily.sans],
-        serif: [fonts.serif.name, ...defaultTheme.fontFamily.sans],
+        sans: [fonts?.sans?.name, ...defaultTheme.fontFamily.sans],
+        serif: [fonts?.serif?.name, ...defaultTheme.fontFamily.sans],
         ...otherFonts,
       },
       fontSize: {

@@ -9,9 +9,10 @@ const LoadFont = (font) =>
     if (!font) resolve();
 
     const link = document.createElement("link");
-    link.href = `https://fonts.googleapis.com/css?family=${
-      font.name
-    }:${font.weights.join()}`;
+    link.href = `https://fonts.googleapis.com/css?family=${font.name.replace(
+      /\s+/g,
+      "+"
+    )}:${font.weights.join()}`;
     link.rel = "stylesheet";
     document.head.appendChild(link);
     const roboto = new FontFaceObserver(font.name);

@@ -35,7 +35,7 @@ export default function Layout({ children, pageTitle, ...props }) {
       <div tw="flex flex-col items-center  min-h-screen">
         <Header />
         <main
-          tw="flex-grow flex flex-col justify-center py-24 w-full"
+          tw="flex-grow flex flex-col justify-center py-24 w-full  font-sans"
           css={[
             css`
               opacity: ${opacity};

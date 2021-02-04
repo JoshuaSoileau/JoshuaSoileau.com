@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated, config } from "react-spring";
 
 const Rotate = ({ children, delay = 0 }) => {
-  const offset = Math.random() * 100;
+  const [offset, setOffset] = useState(0);
   const styles = useSpring({
     loop: true,
     // delay,
@@ -19,6 +19,8 @@ const Rotate = ({ children, delay = 0 }) => {
       rotateZ: 360 + offset,
     },
   });
+
+  useEffect(() => setOffset(Math.random() * 100), []);
 
   return <animated.div style={styles}>{children}</animated.div>;
 };

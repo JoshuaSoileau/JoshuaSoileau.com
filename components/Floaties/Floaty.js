@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import tw, { css } from "twin.macro";
 import FadeIn from "@components/animated/FadeIn";
 import Rotate from "@components/animated/Rotate";
@@ -20,18 +20,20 @@ const colors = {
 };
 
 const Rectangle = () => {
+  const [background, setBackground] = useState({});
+
+  useEffect(() => setBackground(random(colors.background)), []);
+
   return (
-    <div
-      css={[
-        tw`w-3 h-12  relative  transform scale-50`,
-        random(colors.background),
-      ]}
-    ></div>
+    <div css={[tw`w-3 h-12  relative  transform scale-50`, background]}></div>
   );
 };
 
 const Z = () => {
-  const color = random(colors.background);
+  const [color, setColor] = useState({});
+
+  useEffect(() => setColor(random(colors.background)), []);
+
   return (
     <div css={[tw`w-3 h-8 relative transform scale-50`, color]}>
       <div
@@ -50,20 +52,35 @@ const Z = () => {
   );
 };
 
-const Circle = () => (
-  <div
-    css={[
-      tw`w-6 h-6 rounded-full border-4 border-solid border-gray-800`,
-      random(colors.border),
-    ]}
-  />
-);
+const Circle = () => {
+  const [border, setBorder] = useState({});
 
-const confettiObjects = [<Rectangle />, <Circle />, <Z />];
+  useEffect(() => setBorder(random(colors.border)), []);
+
+  return (
+    <div
+      css={[
+        tw`w-6 h-6 rounded-full border-4 border-solid border-gray-800`,
+        border,
+      ]}
+    />
+  );
+};
+
+const confettiObjects = [Rectangle, Circle, Z];
 
 const Floaty = ({ delay }) => {
-  const [top] = useState(Math.random() * 100);
-  const [left] = useState(Math.random() * 100);
+  const [top, setTop] = useState(0);
+  const [left, setLeft] = useState(0);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setTop(Math.random() * 100);
+    setLeft(Math.random() * 100);
+    setIndex(Math.floor(Math.random() * confettiObjects.length));
+  }, []);
+
+  const Element = confettiObjects[index];
 
   return (
     <div
@@ -75,7 +92,7 @@ const Floaty = ({ delay }) => {
     >
       <FadeIn delay={delay}>
         <Rotate delay={delay}>
-          {confettiObjects[Math.floor(Math.random() * confettiObjects.length)]}
+          <Element />
         </Rotate>
       </FadeIn>
     </div>
