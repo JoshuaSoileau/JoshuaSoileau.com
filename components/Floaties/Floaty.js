@@ -26,14 +26,14 @@ const Rectangle = () => {
 const Z = () => {
   return (
     <div tw="bg-blue-400 w-3 h-8 relative transform scale-50">
-      <div tw="bg-blue-400 w-3 h-8 transform origin-top-right rotate-90 absolute top-0"></div>
-      <div tw="bg-blue-400 w-3 h-8 transform origin-top-left -rotate-90 absolute top-full"></div>
+      <div tw="bg-blue-400 w-3 h-8 transform origin-top-right rotate-90 absolute top-0" />
+      <div tw="bg-blue-400 w-3 h-8 transform origin-top-left -rotate-90 absolute top-full" />
     </div>
   );
 };
 
 const Circle = () => (
-  <div tw="w-6 h-6 rounded-full border-4 border-solid border-gray-800"></div>
+  <div tw="w-6 h-6 rounded-full border-4 border-solid border-gray-800" />
 );
 
 const confettiObjects = [<Rectangle />, <Circle />, <Z />];

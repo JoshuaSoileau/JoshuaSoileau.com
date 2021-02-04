@@ -11,7 +11,7 @@ const Box = ({ count = 200 }) => {
         ))}
         <div
           className="fader"
-          tw="absolute z-10 bottom-0 left-0 w-full h-2/3  bg-gradient-to-b from-transparent to-white"
+          tw="absolute z-10 bottom-0 left-0 w-full h-2/3  bg-gradient-to-t from-white"
         ></div>
       </div>
     </div>
