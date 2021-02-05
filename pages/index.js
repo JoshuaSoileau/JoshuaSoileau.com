@@ -16,13 +16,12 @@ const Index = ({ title, description, posts, ...props }) => {
         </H1>
 
         <div tw="prose prose-xl mt-14">
+          <p>I'm a recovering backend developer who adores the frontend.</p>
           <p>
-            I'm a recovering backend developer who adores the frontend.I'm a
-            recovering backend developer who adores the frontend. I'm a
-            recovering backend developer who adores the frontend. I'm a
-            recovering backend developer who adores the frontend.
+            I write about how to do fun, crazy animations in a plain-english,
+            easy-to-grep way.
           </p>
-          <p>Words</p>
+          <p tw="mt-24!">Words</p>
           <PostList posts={posts} />
         </div>
       </RoundedBox>

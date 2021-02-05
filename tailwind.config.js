@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 const fonts = require("./fonts.json");
 
-const otherFonts = fonts.others.reduce(
+const otherFonts = fonts.reduce(
   (total, item) => ({
     ...total,
     [item.title]: [item.name],
@@ -88,12 +88,23 @@ module.exports = {
         lightBlue: colors.lightBlue,
       },
       fontFamily: {
-        sans: [fonts?.sans?.name, ...defaultTheme.fontFamily.sans],
-        serif: [fonts?.serif?.name, ...defaultTheme.fontFamily.sans],
+        // sans: [fonts?.sans?.name, ...defaultTheme.fontFamily.sans],
+        // serif: [fonts?.serif?.name, ...defaultTheme.fontFamily.sans],
         ...otherFonts,
       },
       fontSize: {
         "2xs": ["0.7rem", ".85rem"],
+      },
+      fontWeight: {
+        100: "100",
+        200: "200",
+        300: "300",
+        400: "400",
+        500: "500",
+        600: "600",
+        700: "700",
+        800: "800",
+        900: "900",
       },
       height: (theme) => ({ ...theme("spacing") }),
       minHeight: (theme) => ({ ...theme("spacing") }),

@@ -12,10 +12,10 @@ const LoadFont = (font) =>
     link.href = `https://fonts.googleapis.com/css?family=${font.name.replace(
       /\s+/g,
       "+"
-    )}:${font.weights.join()}`;
+    )}:wght@${font.weights.join()}&display=swap`;
     link.rel = "stylesheet";
     document.head.appendChild(link);
-    const roboto = new FontFaceObserver(font.name);
+    const roboto = new FontFaceObserver(font.name, {});
     roboto
       .load()
       .then(() => {
@@ -25,11 +25,6 @@ const LoadFont = (font) =>
       .catch(reject);
   });
 
-const LoadFonts = () =>
-  Promise.all([
-    ...Object.values(baseFonts).map(LoadFont),
-    /** TODO: this is going to break because the "value" here is an array... */
-    ...Object.values(others).map(LoadFont),
-  ]);
+const LoadFonts = () => Promise.all([...fonts.map(LoadFont)]);
 
 export default LoadFonts;

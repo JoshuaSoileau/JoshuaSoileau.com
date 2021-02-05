@@ -1,18 +1,12 @@
-{
-  "sans": {
+[
+  {
+    "title": "sans",
     "name": "Poppins",
     "weights": [300, 400, 500, 700, 900]
   },
-  "others": [
-    {
-      "title": "rubik",
-      "name": "Rubik",
-      "weights": [400]
-    },
-    {
-      "title": "sans",
-      "name": "Crimson+Text",
-      "weights": [300, 400, 500, 700, 900]
-    }
-  ]
-}
+  {
+    "title": "serif",
+    "name": "Noto Serif",
+    "weights": [400, 700]
+  }
+]
