@@ -8,10 +8,7 @@ const About = ({ title, description, ...props }) => {
 
         <p className="description">{description}</p>
 
-        <p>
-          I am a very exciting person. I know this because I'm following a very
-          exciting tutorial, and a not-exciting person wouldn't do that.
-        </p>
+        <p>I build tiny things on the internet.</p>
       </Layout>
     </>
   );

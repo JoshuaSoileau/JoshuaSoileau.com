@@ -15,7 +15,7 @@ const Index = ({ title, description, posts, ...props }) => {
           <small tw="mt-4 block">I made this website.</small>
         </H1>
 
-        <div tw="prose prose-xl mt-14">
+        {/* <div tw="prose prose-xl mt-14">
           <p>I'm a recovering backend developer who adores the frontend.</p>
           <p>
             I write about how to do fun, crazy animations in a plain-english,
@@ -23,7 +23,7 @@ const Index = ({ title, description, posts, ...props }) => {
           </p>
           <p tw="mt-24!">Words</p>
           <PostList posts={posts} />
-        </div>
+        </div> */}
       </RoundedBox>
     </Layout>
   );
