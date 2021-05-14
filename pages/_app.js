@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
 import GlobalStyles from "@components/Layout/GlobalStyles";
-import FloatyBox from "@components/Floaties/Box";
 import LoadFonts from "../LoadFonts";
 
 function MyApp({ Component, pageProps }) {
@@ -15,7 +14,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyles />
-      <FloatyBox />
       <Component {...pageProps} />
     </>
   );

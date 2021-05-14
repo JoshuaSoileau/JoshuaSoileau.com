@@ -11,19 +11,19 @@ const Index = ({ title, description, posts, ...props }) => {
     <Layout pageTitle={title}>
       <RoundedBox>
         <H1>
-          My name is <span tw="text-indigo-500">Joshua</span>.
+          My name is <span tw="text-indigo-500">Josh</span>.
           <small tw="mt-4 block">I made this website.</small>
         </H1>
 
-        {/* <div tw="prose prose-xl mt-14">
-          <p>I'm a recovering backend developer who adores the frontend.</p>
+        <div tw="prose prose-xl mt-14">
+          {/* <p>I'm a recovering backend developer who adores the frontend.</p>
           <p>
             I write about how to do fun, crazy animations in a plain-english,
             easy-to-grep way.
           </p>
-          <p tw="mt-24!">Words</p>
+          <p tw="mt-24!">Words</p> */}
           <PostList posts={posts} />
-        </div> */}
+        </div>
       </RoundedBox>
     </Layout>
   );

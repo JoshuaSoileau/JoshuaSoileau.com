@@ -10,12 +10,6 @@ export default function Header() {
           <Link href="/">
             <a tw="mr-auto  font-rubik text-2xl font-bold">J 📖 S</a>
           </Link>
-          <Link href="/">
-            <a tw="mr-8 last:mr-0">Words</a>
-          </Link>
-          <Link href="/about">
-            <a tw="mr-8 last:mr-0">About</a>
-          </Link>
         </nav>
       </Container>
     </>
