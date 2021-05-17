@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "twin.macro";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
@@ -12,12 +13,10 @@ export default function BlogPost({ siteTitle, frontmatter, markdownBody }) {
       <Link href="/">
         <a>Back to post list</a>
       </Link>
-      <article>
+      <article tw="prose lg:prose-xl">
         <h1>{frontmatter.title}</h1>
         <p>By {frontmatter.author}</p>
-        <div>
-          <ReactMarkdown source={markdownBody} />
-        </div>
+        <ReactMarkdown source={markdownBody} />
       </article>
     </Layout>
   );
