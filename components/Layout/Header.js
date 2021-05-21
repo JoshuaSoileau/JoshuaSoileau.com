@@ -8,7 +8,9 @@ export default function Header() {
       <Container as="header">
         <nav tw="flex justify-end items-center py-6  text-xl">
           <Link href="/">
-            <a tw="mr-auto  font-rubik text-2xl font-bold">J 📖 S</a>
+            <a tw="mr-auto  font-rubik text-2xl font-bold  text-black hover:text-indigo-500  cursor-pointer">
+              J 📖 S
+            </a>
           </Link>
         </nav>
       </Container>

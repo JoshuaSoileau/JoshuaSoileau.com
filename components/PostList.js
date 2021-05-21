@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "twin.macro";
 
 export default function PostList({ posts }) {
   if (posts === "undefined") return null;
@@ -12,7 +13,9 @@ export default function PostList({ posts }) {
             return (
               <li key={post.slug}>
                 <Link href={{ pathname: `/post/${post.slug}` }}>
-                  <a>{post.frontmatter.title}</a>
+                  <a tw="text-black hover:text-indigo-500  cursor-pointer">
+                    {post.frontmatter.title}
+                  </a>
                 </Link>
               </li>
             );

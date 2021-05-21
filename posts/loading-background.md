@@ -9,3 +9,9 @@ tags: Animation Breakdown
 I ran across a _sleek_ animated loader effect the other day, and I wanted to know how it worked...
 
 Whelp, I figured it out, and now we're going to learn it together!
+
+...
+
+So... I'm still working on this one 😅
+
+I'll update this page once it's done!
