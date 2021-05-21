@@ -8,59 +8,60 @@ import RoundedBox from "@components/RoundedBox/RoundedBox";
 import Twitter from "@components/Icons/Twitter";
 import Github from "@components/Icons/Github";
 import LinkedIn from "@components/Icons/Linkedin";
+import Timeline from "@components/Timeline/Timeline";
 
 const Index = ({ title, description, posts, ...props }) => {
   // test
   return (
     <Layout pageTitle={title}>
-      <RoundedBox>
+      <section>
+        <H1>
+          My name is <span tw="text-indigo-500">Josh</span>.
+          <small tw="mt-4 block">I made this website.</small>
+        </H1>
+      </section>
+
+      <div tw="prose prose-xl mt-48">
         <section>
-          <H1>
-            My name is <span tw="text-indigo-500">Josh</span>.
-            <small tw="mt-4 block">I made this website.</small>
-          </H1>
+          <H2>Words.</H2>
+          <PostList posts={posts} />
         </section>
 
-        <div tw="prose prose-xl mt-48">
-          <section>
-            <H2>Words.</H2>
-            <PostList posts={posts} />
-          </section>
+        <Timeline />
 
-          <section>
-            <H2>Find me online.</H2>
-            <ul tw="flex p-0 m-0 justify-start items-center">
-              <li tw="mr-8 last:mr-0  inline-flex items-center">
-                <a
-                  tw="text-black hover:text-indigo-500"
-                  href="https://twitter.com/joshua_soileau/"
-                  aria-label="Josh's Twitter profile"
-                >
-                  <Twitter height="45" />
-                </a>
-              </li>
-              <li tw="mr-8 last:mr-0  inline-flex items-center">
-                <a
-                  tw="text-black hover:text-indigo-500"
-                  href="https://github.com/JoshuaSoileau/"
-                  aria-label="Josh's Github profile"
-                >
-                  <Github height="45" />
-                </a>
-              </li>
-              <li tw="mr-8 last:mr-0  inline-flex items-center">
-                <a
-                  tw="text-black hover:text-indigo-500"
-                  href="https://www.linkedin.com/in/joshsoileau/"
-                  aria-label="Josh's LinkedIn profile"
-                >
-                  <LinkedIn height={40} />
-                </a>
-              </li>
-            </ul>
-          </section>
-        </div>
-      </RoundedBox>
+        <section>
+          <H2>Find me online.</H2>
+          <ul tw="flex p-0 m-0 justify-start items-center">
+            <li tw="mr-8 last:mr-0  inline-flex items-center">
+              <a
+                tw="text-black hover:text-indigo-500"
+                href="https://twitter.com/joshua_soileau/"
+                aria-label="Josh's Twitter profile"
+              >
+                <Twitter height="45" />
+              </a>
+            </li>
+            <li tw="mr-8 last:mr-0  inline-flex items-center">
+              <a
+                tw="text-black hover:text-indigo-500"
+                href="https://github.com/JoshuaSoileau/"
+                aria-label="Josh's Github profile"
+              >
+                <Github height="45" />
+              </a>
+            </li>
+            <li tw="mr-8 last:mr-0  inline-flex items-center">
+              <a
+                tw="text-black hover:text-indigo-500"
+                href="https://www.linkedin.com/in/joshsoileau/"
+                aria-label="Josh's LinkedIn profile"
+              >
+                <LinkedIn height={40} />
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
     </Layout>
   );
 };
