@@ -4,10 +4,9 @@ import PostList from "@components/PostList";
 import "twin.macro";
 import H1 from "@components/typography/H1";
 import H2 from "@components/typography/H2";
-import RoundedBox from "@components/RoundedBox/RoundedBox";
 import Twitter from "@components/Icons/Twitter";
 import Github from "@components/Icons/Github";
-import LinkedIn from "@components/Icons/Linkedin";
+import LinkedIn from "@components/Icons/LinkedIn";
 import Timeline from "@components/Timeline/Timeline";
 
 const Index = ({ title, description, posts, ...props }) => {
