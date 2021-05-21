@@ -186,7 +186,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      inset: ["first", "last"],
+      inset: ["first-of-type", "last-of-type"],
     },
   },
 };
