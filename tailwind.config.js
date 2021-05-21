@@ -184,9 +184,9 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      inset: ["first-of-type", "last-of-type"],
-    },
-  },
+  // variants: {
+  //   extend: {
+  //     inset: ["first-of-type", "last-of-type"],
+  //   },
+  // },
 };
