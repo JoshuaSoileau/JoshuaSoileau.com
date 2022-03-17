@@ -73,9 +73,19 @@ export async function getStaticProps() {
   const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
+    console.log({ keys });
+
+    const distinctSlugs = [];
 
     const data = keys.map((key, index) => {
       let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
+
+      if (distinctSlugs.indexOf(slug) >= 0) {
+        return null;
+      }
+
+      distinctSlugs.push(slug);
+
       const value = values[index];
       const document = matter(value.default);
       return {
@@ -83,7 +93,7 @@ export async function getStaticProps() {
         markdownBody: document.content,
         slug,
       };
-    });
+    }).filter(Boolean);
     return data;
   })(require.context("../posts", true, /\.md$/));
 
