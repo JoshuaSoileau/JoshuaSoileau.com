@@ -1,6 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import H3 from "@components/typography/H3";
+import Image from "next/image";
 
 const Item = ({ src, title, description, url }) => {
   return (
@@ -18,14 +19,10 @@ const Item = ({ src, title, description, url }) => {
       <article tw="flex items-start flex-col md:(flex-row items-center  w-96)">
         <a
           href={url}
-          tw="cursor-pointer block  rounded-4xl shadow-xl  hover:shadow-2xl flex-shrink-0 overflow-hidden transition-all"
+          tw="cursor-pointer flex  rounded-4xl shadow-xl  hover:shadow-2xl flex-shrink-0 overflow-hidden transition-all"
           target="_blank"
         >
-          <img
-            tw="block! w-full h-auto md:(w-40 h-40) object-cover  m-0!"
-            src={src}
-            alt="Photo of the Holiday Movie Bingo game"
-          />
+          <Image src={src} width={160} height={160} alt={description} />
         </a>
         <div tw="mt-6 md:(ml-12 mt-0)">
           <div tw="md:(w-80)">
